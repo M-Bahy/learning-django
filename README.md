@@ -31,6 +31,13 @@ urlpatterns = [
 ```
 Now in playground/urls.py, map the "/"'s to the appropriate function in views.py
 ```python
+from django.urls import path
+from . import views
+
+urlpatterns = [path("", views.say_hello)]
+```
+Now in playground/views.py, create the function that will handle the request and return the response.
+```python
 from django.shortcuts import render
 from django.http import HttpResponse
 # request -> response
