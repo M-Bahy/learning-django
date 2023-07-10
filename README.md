@@ -1,5 +1,5 @@
 # learn-django
-install django in a virtual environment
+install django
 ```bash
 pip install django
 ```
@@ -15,4 +15,26 @@ By default, the server runs on port 8000. To change the port, specify it in the 
 ```bash
 python manage.py runserver 8080
 ```
+create a new django app
+```bash
+python manage.py startapp playground
+```
+In urls.py in your primary app (myapp) map the "/"'s to the appropriate handler files (it is like middleware in express)
+```python
+from django.contrib import admin
+from django.urls import path, include
 
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("playground.urls")),
+]
+```
+Now in playground/urls.py, map the "/"'s to the appropriate function in views.py
+```python
+from django.shortcuts import render
+from django.http import HttpResponse
+# request -> response
+def say_hello(request):
+    return render(request, "hello.html")
+```
+put the html file in the templates folder (playground/templates/hello.html)

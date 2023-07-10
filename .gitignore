@@ -2,3 +2,11 @@ myapp/__pycache__/wsgi.cpython-311.pyc
 myapp/__pycache__/settings.cpython-311.pyc
 myapp/__pycache__/__init__.cpython-311.pyc
 myapp/__pycache__/urls.cpython-311.pyc
+.vscode/settings.json
+playground/__pycache__/__init__.cpython-311.pyc
+playground/__pycache__/apps.cpython-311.pyc
+playground/__pycache__/admin.cpython-311.pyc
+playground/__pycache__/models.cpython-311.pyc
+playground/__pycache__/views.cpython-311.pyc
+playground/__pycache__/urls.cpython-311.pyc
+playground/migrations/__pycache__/__init__.cpython-311.pyc
