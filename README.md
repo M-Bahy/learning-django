@@ -45,3 +45,6 @@ def say_hello(request):
     return render(request, "hello.html")
 ```
 put the html file in the templates folder (playground/templates/hello.html)
+
+# Note:
+write your configurations in the .env file
