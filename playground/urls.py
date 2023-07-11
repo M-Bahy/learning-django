@@ -1,6 +1,9 @@
 # map urls to view functions
 from django.urls import path
-from . import views
 
+import sys
 
-urlpatterns = [path("", views.say_hello)]
+sys.path.append("playground")
+import views
+
+urlpatterns = [path("", views.say_hello, name="say_hello")]
