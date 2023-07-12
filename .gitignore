@@ -11,3 +11,5 @@ playground/__pycache__/views.cpython-311.pyc
 playground/__pycache__/urls.cpython-311.pyc
 playground/migrations/__pycache__/__init__.cpython-311.pyc
 playground/tests/__pycache__/settings.cpython-311.pyc
+__pycache__/test_urls.cpython-311.pyc
+__pycache__/test_views.cpython-311.pyc
