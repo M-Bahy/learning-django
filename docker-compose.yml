@@ -2,8 +2,8 @@ version: "3.10"
 services:
   db:
     image: postgres:latest
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
+    # volumes:
+    #   - ./data/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: mnk3mnk3
       POSTGRES_USER: bahy
@@ -23,9 +23,9 @@ services:
       - ./playground:/app/playground
     depends_on:
       - db
-volumes:
-  data:
-    driver: local
+# volumes:
+#   data:
+#     driver: local
 
 
 # version: "3.9"
