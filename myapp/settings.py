@@ -32,7 +32,7 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["testserver"]
+ALLOWED_HOSTS = ["testserver", "127.0.0.1"]
 
 
 # Application definition
@@ -87,7 +87,7 @@ DATABASES = {
         "NAME": "db1",
         "USER": "bahy",
         "PASSWORD": "mnk3mnk3",
-        "Host": "172.17.0.2",
+        # "Host": "172.17.0.2",
         "PORT": 5432,
     }
 }
