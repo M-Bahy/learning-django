@@ -14,3 +14,4 @@ playground/tests/__pycache__/settings.cpython-311.pyc
 __pycache__/test_urls.cpython-311.pyc
 __pycache__/test_views.cpython-311.pyc
 playground/migrations/__pycache__/0001_initial.cpython-311.pyc
+data/

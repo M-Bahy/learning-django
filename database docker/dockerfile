@@ -1,8 +1,0 @@
-FROM postgres:latest
-
-
-ENV POSTGRES_USER bahy
-ENV POSTGRES_PASSWORD 'mnk3mnk3'
-ENV POSTGRES_DB db1
-
-EXPOSE 5432

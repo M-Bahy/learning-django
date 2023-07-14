@@ -5,18 +5,21 @@ services:
     # volumes:
     #   - ./data/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: mnk3mnk3
-      POSTGRES_USER: bahy
-      POSTGRES_DB: db1
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_USER: myuser
+      POSTGRES_DB: mydb
+    
     ports:
       - "5432:5432"
-    command: chmod 0700 ./var/lib/postgresql/data
+    # command: 
+    # - chmod 0700 ./var/lib/postgresql/data
+    # - rm -f ./var/lib/postgresql/data/postmaster.pid
   web:
     build: .
-    environment:
-      POSTGRES_PASSWORD: mnk3mnk3
-      POSTGRES_USER: bahy
-      POSTGRES_DB: db1
+    # environment:
+    #   POSTGRES_PASSWORD: mnk3mnk3
+    #   POSTGRES_USER: bahy
+    #   POSTGRES_DB: db1
     ports:
       - 8000:8000
     volumes:
