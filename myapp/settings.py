@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "playground",
     "rest_framework",
     "api",
+    "base",
 ]
 
 MIDDLEWARE = [

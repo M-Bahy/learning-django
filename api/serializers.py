@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import WorkoutRoutine
+from base.models import Person
 
 
-class WorkoutRoutineSerializer(serializers.ModelSerializer):
+class PersonSerializer(serializers.ModelSerializer):
     class Meta:
-        model = WorkoutRoutine
-        fields = ("id", "name", "description", "created_at")
+        model = Person
+        fields = "__all__"

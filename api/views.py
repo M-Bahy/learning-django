@@ -1,22 +1,19 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.shortcuts import render
-from rest_framework import viewsets
-from .models import WorkoutRoutine
-from .serializers import WorkoutRoutineSerializer
-
-
-class WorkoutRoutineViewSet(viewsets.ModelViewSet):
-    queryset = WorkoutRoutine.objects.all()
-    serializer_class = WorkoutRoutineSerializer
+from .serializers import PersonSerializer
+from base.models import Person
 
 
 @api_view(["GET"])
-def hello_world(request):
-    # return Response({"message": "Hello, world!"})
-    return render(request, "admin_home.html")
+def getData(request):
+    items = Person.objects.all()
+    serializer = PersonSerializer(items, many=True)
+    return Response(serializer.data)
 
 
-@api_view(["GET"])
-def admin_dashboard(request):
-    return render(request, "admin_dashboard.html")
+@api_view(["POST"])
+def addPerson(request):
+    serializer = PersonSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
