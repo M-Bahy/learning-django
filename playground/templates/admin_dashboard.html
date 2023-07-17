@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        
+
+        body {
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .header {
+            background-color: #5c6bc0;
+            color: white;
+            padding: 20px;
+        }
+    
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+    
+        h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+    
+        form {
+            display: grid;
+            gap: 10px;
+        }
+    
+        label {
+            font-weight: bold;
+        }
+    
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #5c6bc0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        .workout-list {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .workout-list-item {
+            background-color: #e0e0e0;
+            color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    
+        .footer {
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Admin Dashboard</h1>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Add New Workout Routine</h2>
+            <form id="workoutForm">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <h2>Workout Routines</h2>
+        <ul class="workout-list" id="workoutList"></ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2023 Admin Dashboard. All rights reserved.
+    </div>
+
+    <script>
+        // JavaScript code
+        const workoutForm = document.getElementById('workoutForm');
+        const workoutList = document.getElementById('workoutList');
+
+        workoutForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById('name');
+            const descriptionInput = document.getElementById('description');
+
+            const name = nameInput.value;
+            const description = descriptionInput.value;
+
+            const workoutItem = document.createElement('li');
+            workoutItem.classList.add('workout-list-item');
+            workoutItem.textContent = `Name: ${name}, Description: ${description}`;
+
+            workoutList.appendChild(workoutItem);
+
+            // You can make an API call to the backend to save the workout routine here
+            // using the Fetch API or any other method compatible with Django REST Framework
+            // Example API call:
+            fetch('/workout-routines/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    description: description,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+
+            // Clear the form inputs after submission
+            nameInput.value = '';
+            descriptionInput.value = '';
+        });
+    </script>
+</body>
+</html>

@@ -16,14 +16,18 @@ services:
     # - rm -f ./var/lib/postgresql/data/postmaster.pid
   web:
     build: .
-    # environment:
+    environment:
+      DJANGO_SUPERUSER_USERNAME: admin
+      DJANGO_SUPERUSER_PASSWORD: admin
     #   POSTGRES_PASSWORD: mnk3mnk3
     #   POSTGRES_USER: bahy
     #   POSTGRES_DB: db1
     ports:
       - 8000:8000
     volumes:
-      - ./playground:/app/playground
+      # - ./playground:/app/playground
+      # - ./api:/app/api
+      - .:/app
     depends_on:
       - db
 # volumes:
