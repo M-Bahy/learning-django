@@ -1,12 +1,9 @@
 import unittest
 import django
-import sys
 from django.test import Client
 from django.urls import reverse
 
 django.setup()
-
-sys.path.append("playground")
 
 
 class TestViews(unittest.TestCase):

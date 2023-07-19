@@ -2,60 +2,21 @@ version: "3.10"
 services:
   db:
     image: postgres:latest
-    # volumes:
-    #   - ./data/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_USER: myuser
-      POSTGRES_DB: mydb
+      POSTGRES_PASSWORD: "${PASSWORD}"
+      POSTGRES_USER: "${USER}"
+      POSTGRES_DB: "${DB}"
     
     ports:
-      - "5432:5432"
-    # command: 
-    # - chmod 0700 ./var/lib/postgresql/data
-    # - rm -f ./var/lib/postgresql/data/postmaster.pid
+      - "${DB_PORT}:${DB_PORT}"
   web:
     build: .
     environment:
-      DJANGO_SUPERUSER_USERNAME: admin
-      DJANGO_SUPERUSER_PASSWORD: admin
-    #   POSTGRES_PASSWORD: mnk3mnk3
-    #   POSTGRES_USER: bahy
-    #   POSTGRES_DB: db1
+      DJANGO_SUPERUSER_USERNAME: "${DJANGO_SUPERUSER_USERNAME}"
+      DJANGO_SUPERUSER_PASSWORD: "${DJANGO_SUPERUSER_PASSWORD}"
     ports:
-      - 8000:8000
+      - "${WEB_PORT}:${WEB_PORT}"
     volumes:
-      # - ./playground:/app/playground
-      # - ./api:/app/api
       - .:/app
     depends_on:
       - db
-# volumes:
-#   data:
-#     driver: local
-
-
-# version: "3.9"
-   
-# services:
-#   db:
-#     image: postgres
-#     volumes:
-#       - ./data/db:/var/lib/postgresql/data
-#     environment:
-#       - POSTGRES_DB=postgres
-#       - POSTGRES_USER=postgres
-#       - POSTGRES_PASSWORD=postgres
-#   web:
-#     build: .
-#     command: python manage.py runserver 0.0.0.0:8000
-#     volumes:
-#       - ./vyshdjangoproject:/code
-#     ports:
-#       - "8000:8000"
-#     environment:
-#       - POSTGRES_NAME=postgres
-#       - POSTGRES_USER=postgres
-#       - POSTGRES_PASSWORD=postgres
-#     depends_on:
-#       - db
