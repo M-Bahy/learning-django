@@ -4,8 +4,41 @@ from serializers import PersonSerializer
 from rest_framework.decorators import api_view
 from random import Random
 from faker import Faker
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+    TemplateView,
+    View,
+    FormView,
+)
+import django
+
+django.setup()
 
 fake = Faker()
+
+
+class AllPeople(ListView):
+    model = Person
+    template_name = "person_list.html"
+    # template_name = "add.html"
+
+
+@api_view(["POST"])
+def add_db(request):
+    person_id = request.POST.get("id")
+    name = request.POST.get("name")
+    age = request.POST.get("age")
+    item = Person.objects.create(id=person_id, name=name, age=age)
+    item.save()
+    return render(
+        request,
+        "delete.html",
+        {"message": "Person added successfully"},
+    )
 
 
 def say_hello(request):
@@ -14,13 +47,14 @@ def say_hello(request):
 
 
 def add_person(request):
-    id = Random().randint(1, 100)
-    name = fake.name()
-    age = Random().randint(1, 100)
-    Person.objects.create(id=id, name=name, age=age)
-    return render(
-        request, "delete.html", {"message": "Person added successfully"}
-    )
+    # id = Random().randint(1, 100)
+    # name = fake.name()
+    # age = Random().randint(1, 100)
+    # Person.objects.create(id=id, name=name, age=age)
+    # return render(
+    #     request, "delete.html", {"message": "Person added successfully"}
+    # )
+    return render(request, "add.html")
 
 
 @api_view(["GET"])

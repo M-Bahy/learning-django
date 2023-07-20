@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DDP</title>
+    <style>
+        body {
+            background-color: #000033;
+            color: white;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        .line {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% if data %}
+    <h1>Person Found</h1>
+    <div class="line">ID: {{ data.id }}, Name: {{ data.name }}, Age: {{ data.age }}</div>
+    {%else%}
+    <h1>Person not found</h1>
+{% endif %}
+
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DDP</title>
+    <style>
+        body {
+            background-color: #000033;
+            color: white;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        .line {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% if data %}
+    <h1>Total number of persons: {{ data|length }}</h1>
+    {% for item in data %}
+    <div class="line">ID: {{ item.id }}, Name: {{ item.name }}, Age: {{ item.age }}</div>
+    {% endfor %}
+    {% else %}
+    <h1>No data</h1>
+{% endif %}
+
+    
+</body>
+</html>

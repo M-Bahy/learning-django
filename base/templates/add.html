@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Person</title>
+    <style>
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="submit"] {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Add Person</h1>
+    <form method="post" action="add_db">
+      {% csrf_token %}
+      <label for="id">ID:</label>
+      <input type="text" name="id" id="id" required>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required>
+      <label for="age">Age:</label>
+      <input type="number" name="age" id="age" required>
+      <input type="submit" value="Add Person">
+    </form>
+  </body>
+</html>
