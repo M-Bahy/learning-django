@@ -20,12 +20,10 @@
 </head>
 <body>
     {% if data %}
-    <h1>Total number of persons: {{ data|length }}</h1>
-    {% for item in data %}
-    <div class="line">ID: {{ item.id }}, Name: {{ item.name }}, Age: {{ item.age }}</div>
-    {% endfor %}
-    {% else %}
-    <h1>No data</h1>
+    <h1>Person Found</h1>
+    <div class="line">ID: {{ data.id }}, Name: {{ data.name }}, Age: {{ data.age }}</div>
+    {%else%}
+    <h1>Person not found</h1>
 {% endif %}
 
     

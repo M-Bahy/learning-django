@@ -7,7 +7,7 @@ django.setup()
 
 
 class TestViews(unittest.TestCase):
-    def test_home_view(self):
+    def test_hi_view(self):
         client = Client()
         response = client.get(reverse("say_hello"))
         self.assertEqual(response.status_code, 200)
