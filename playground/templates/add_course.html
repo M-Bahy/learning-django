@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add Person</title>
+    <title>Add Student</title>
     <style>
       label {
         display: block;
@@ -13,16 +13,18 @@
     </style>
   </head>
   <body>
-    <h1>Add Person</h1>
-    <form method="post" action="add_db">
+    <h1>Add Student</h1>
+    <form method="post" action="add_db_c">
       {% csrf_token %}
       <label for="id">ID:</label>
       <input type="number" name="id" id="id" required>
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" required>
-      <label for="age">Age:</label>
-      <input type="number" name="age" id="age" required>
-      <input type="submit" value="Add Person">
+      <label for="age">Duration:</label>
+      <input type="number" name="duration" id="duration" required>
+      <label for="name">Fees:</label>
+      <input type="text" name="fees" id="fees" required>
+      <input type="submit" value="Add Course">
     </form>
   </body>
 </html>

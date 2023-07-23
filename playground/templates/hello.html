@@ -19,13 +19,43 @@
     </style>
 </head>
 <body>
-    {% if data %}
-    <h1>Total number of persons: {{ data|length }}</h1>
-    {% for item in data %}
+    {% if person %}
+    <h1>Total number of persons: {{ person|length }}</h1>
+    {% for item in person %}
     <div class="line">ID: {{ item.id }}, Name: {{ item.name }}, Age: {{ item.age }}</div>
     {% endfor %}
     {% else %}
-    <h1>No data</h1>
+    <h1>No person</h1>
+{% endif %}
+
+{% if student %}
+    <h1>Total number of students: {{ student|length }}</h1>
+    {% for item in student %}
+    {% comment %} <div class="line">{{item}}</div> {% endcomment %}
+    <div class="line">ID: {{ item.id }}, Name: {{ item.name }}, Age: {{ item.age }} , Address: {{item.address}} , Phone: {{item.phone}}</div>
+    {% endfor %}
+    {% else %}
+    <h1>No students</h1>
+{% endif %}
+
+{% if courses %}
+    <h1>Total number of courses: {{ courses|length }}</h1>
+    {% for item in courses %}
+    {% comment %} <div class="line">{{item}}</div> {% endcomment %}
+    <div class="line">ID: {{ item.id }}, Name: {{ item.name }}, Duration: {{ item.duration }} , Fees: {{item.fees}} </div>
+    {% endfor %}
+    {% else %}
+    <h1>No courses</h1>
+{% endif %}
+
+{% if student_course %}
+    <h1>Total number of student_course: {{ student_course|length }}</h1>
+    {% for item in student_course %}
+    {% comment %} <div class="line">{{item}}</div> {% endcomment %}
+    <div class="line">Student ID : {{item.student_id}} , Course ID : {{item.course_id}} , Course Status : {{item.status}} </div>
+    {% endfor %}
+    {% else %}
+    <h1>No student_course</h1>
 {% endif %}
 
     
